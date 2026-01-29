@@ -6,60 +6,69 @@
   <title>Select Date and Food</title>
 
   <style>
-    .food-choice {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .food-choice-item {
-      margin: 12px;
-      text-align: center;
-      flex: 1 1 45%;
-      max-width: 300px;
-    }
-    .food-choice-item img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.3s ease-in-out;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* subtle shadow for cuteness */
-    }
-    .food-choice-item img:hover {
-      transform: scale(1.05);
-    }
-    .food-label {
-      margin-top: 5px;
-    }
 
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: linear-gradient(135deg, #ffe6f2, #ffd1dc, #ff9a9e); /* soft pink gradient */
-        color: #333;
-        min-height: 100vh;
-        margin: 0;
-        padding: 20px;
-        position: relative;
-        box-sizing: border-box;           /* helps with padding/margin consistency */
-        padding: 20px 10px;
-    }
+    html {
+  overflow-y: scroll; /* Forces scrollbar if content overflows (good for testing) */
+  height: 100%;
+}
 
-    /* Simple floating hearts animation */
-    .heart {
-        position: absolute;
-        font-size: 20px;
-        color: #ff4d4d;
-        pointer-events: none;
-        animation: float 8s linear infinite;
-        opacity: 0.8;
-    }
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6f2, #ffd1dc, #ff9a9e); /* soft pink gradient */
+  color: #333;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  overflow-y: auto; /* Allows vertical scrolling */
+  overflow-x: hidden; /* Prevents horizontal scroll (good for mobile) */
+  box-sizing: border-box;
+}
 
-    @keyframes float {
-        0%   { transform: translateY(100vh) rotate(0deg); }
-        100% { transform: translateY(-10vh) rotate(360deg); }
-    }
+/* Simple floating hearts animation */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  color: #ff4d4d;
+  pointer-events: none;
+  animation: float 8s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0%   { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-10vh) rotate(360deg); }
+}
+
+/* Your food choice styles (unchanged) */
+.food-choice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.food-choice-item {
+  margin: 12px;
+  text-align: center;
+  flex: 1 1 45%;
+  max-width: 300px;
+}
+.food-choice-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.food-choice-item img:hover {
+  transform: scale(1.05);
+}
+.food-label {
+  margin-top: 5px;
+}
+  
   </style>
 </head>
 <body>
