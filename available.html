@@ -42,7 +42,8 @@
         margin: 0;
         padding: 20px;
         position: relative;
-        overflow: hidden;
+        box-sizing: border-box;           /* helps with padding/margin consistency */
+        padding: 20px 10px;
     }
 
     /* Simple floating hearts animation */
@@ -128,6 +129,11 @@
     var message = "Fill out the form: \n\nDate: " + date + "\nChoice of Food: " + selectedFood;
     var whatsappLink = "https://wa.me/60189114113?text=" + encodeURIComponent(message);
     window.location.href = whatsappLink;
+
+    // Wait 2.5 seconds then open WhatsApp
+    setTimeout(() => {
+      window.location.href = whatsappLink;
+    }, 2500);
   });
 
   // Generate a list of available dates (Feb 13, 14, 15, and 16, 2024)
@@ -140,10 +146,6 @@
     dateSelect.add(option);
   });
 
-  // Wait 2.5 seconds then open WhatsApp
-  setTimeout(() => {
-    window.location.href = whatsappLink;
-  }, 2500);
 
   // Create falling hearts
   function createHeart() {
