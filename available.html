@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Select Date and Food</title>
-
   <style>
-        .food-choice {
+    .food-choice {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -42,26 +41,19 @@
         margin: 0;
         padding: 20px;
         position: relative;
-        box-sizing: border-box;           /* helps with padding/margin consistency */
-        padding: 20px 10px;
     }
-  
   </style>
 </head>
 <body>
 
+  
 <h1>Choose a Date and Food</h1>
 
-<div id="successMessage" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(255,255,255,0.95); padding:40px 60px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:1000; font-size:1.8em; color:#e91e63; text-align:center; max-width:90%;">
-  Yayy! <br>Can't wait to spend time with you! 🥰<br><small>Sending to WhatsApp...</small>
-</div>
-
 <form id="foodDateForm">
-    
   <label for="date">Select a date:</label>
   <select id="date" name="date" required>
     <option value="">Select a date</option>
-  </select><br><br> 
+  </select><br><br>
 
   <h2>Select a type of food:</h2>
   <div class="food-choice">
@@ -107,19 +99,14 @@
     });
 
     // Here you can store or process the date and food choices as needed
+      var activity = "cuddle & chill ;)";
 
-    // Show sweet message
-    document.getElementById('successMessage').style.display = 'block';
+    // Here you can store or process the date and food choices as needed
 
     // Open WhatsApp with pre-filled message
-    var message = "Fill out the form: \n\nDate: " + date + "\nChoice of Food: " + selectedFood;
+    var message = "Fill out the form: \n\nDate: " + date + "\nChoice of Food: " + selectedFood + "\nActivity: " + activity;
     var whatsappLink = "https://wa.me/60189114113?text=" + encodeURIComponent(message);
     window.location.href = whatsappLink;
-
-    // Wait 2.5 seconds then open WhatsApp
-    setTimeout(() => {
-      window.location.href = whatsappLink;
-    }, 2500);
   });
 
   // Generate a list of available dates (Feb 13, 14, 15, and 16, 2024)
@@ -131,7 +118,6 @@
     option.value = date;
     dateSelect.add(option);
   });
-
 </script>
 
 </body>
