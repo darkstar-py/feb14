@@ -23,6 +23,21 @@
       max-width: 100%;
     }
 
+    #gif {
+    margin: 30px auto 20px;      /* More breathing room top/bottom, centered */
+    max-width: 100%;             /* Never wider than screen */
+    width: 90%;                  /* Slightly less than full width for nicer look on mobile */
+    max-width: 400px;            /* Caps size on large screens — adjust if you want bigger */
+   }
+
+  #gif img {
+    width: 100%;                 /* Fills the container */
+    height: auto;                /* Keeps aspect ratio — prevents squishing */
+    display: block;              /* Removes unwanted bottom space */
+    border-radius: 12px;         /* Optional: soft corners for cuteness */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Subtle shadow for pop */
+  }
+
     /* Simple floating hearts animation */
     .heart {
         position: absolute;
