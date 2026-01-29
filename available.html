@@ -98,13 +98,11 @@
       }
     });
 
-    // Here you can store or process the date and food choices as needed
-      var activity = "cuddle & chill ;)";
 
     // Here you can store or process the date and food choices as needed
 
     // Open WhatsApp with pre-filled message
-    var message = "Fill out the form: \n\nDate: " + date + "\nChoice of Food: " + selectedFood + "\nActivity: " + activity;
+    var message = "Fill out the form: \n\nDate: " + date + "\nChoice of Food: " + selectedFood;
     var whatsappLink = "https://wa.me/60189114113?text=" + encodeURIComponent(message);
     window.location.href = whatsappLink;
   });
