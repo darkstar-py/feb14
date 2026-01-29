@@ -23,7 +23,7 @@
       border-radius: 12px;
       cursor: pointer;
       transition: transform 0.3s ease-in-out;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* subtle shadow for cuteness */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
     .food-choice-item img:hover {
       transform: scale(1.05);
@@ -31,22 +31,44 @@
     .food-label {
       margin-top: 5px;
     }
-
     body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: linear-gradient(135deg, #ffe6f2, #ffd1dc, #ff9a9e); /* soft pink gradient */
-        color: #333;
-        min-height: 100vh;
-        margin: 0;
-        padding: 20px;
-        position: relative;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ffe6f2, #ffd1dc, #ff9a9e);
+      color: #333;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+    }
+    /* New Submit Button Styles */
+    .submit-wrapper {
+      margin: 40px auto 80px; /* space above + lots below */
+      text-align: center;
+    }
+    input[type="submit"] {
+      font-size: 1.4em;              /* larger text */
+      padding: 18px 50px;            /* bigger click area */
+      background: #ff4d4d;           /* romantic red/pink */
+      color: white;
+      border: none;
+      border-radius: 30px;           /* soft rounded */
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4); /* subtle glow */
+      transition: all 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background: #e63946;
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(255, 77, 77, 0.6);
+    }
+    select, label, h2 {
+      font-size: 1.1em; /* slight boost for readability on mobile */
     }
   </style>
 </head>
 <body>
-
-  
+ 
 <h1>Choose a Date and Food</h1>
 
 <form id="foodDateForm">
@@ -83,12 +105,14 @@
     </div>
   </div>
 
-  <input type="submit" value="Submit">
+  <div class="submit-wrapper">
+    <input type="submit" value="Submit">
+  </div>
 </form>
 
 <script>
   document.getElementById('foodDateForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
     var date = document.getElementById('date').value;
     var foodRadios = document.getElementsByName('food');
     var selectedFood = "";
@@ -97,17 +121,11 @@
         selectedFood = radio.value;
       }
     });
-
-
-    // Here you can store or process the date and food choices as needed
-
-    // Open WhatsApp with pre-filled message
     var message = "Fill out the form: \n\nDate: " + date + "\nChoice of Food: " + selectedFood;
     var whatsappLink = "https://wa.me/60189114113?text=" + encodeURIComponent(message);
     window.location.href = whatsappLink;
   });
 
-  // Generate a list of available dates (Feb 13, 14, 15, and 16, 2024)
   var dateSelect = document.getElementById('date');
   var availableDates = ["13 Feb 2026 (Fri)", "14 Feb 2026 (prefer this :))", "15 Feb 2026 (Sun)"];
   availableDates.forEach(function(date) {
@@ -117,6 +135,5 @@
     dateSelect.add(option);
   });
 </script>
-
 </body>
 </html>
